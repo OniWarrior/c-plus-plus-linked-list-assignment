@@ -16,5 +16,10 @@ int main()
     list.appendNode(6.7);
     list.appendNode(8.9);
 
+    // Display the example data
+    std::cout << "This is the example data: \n";
+    list.displayList();
+    std::cout << std::endl;
+
     return 0;
 }
