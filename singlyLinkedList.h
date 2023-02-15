@@ -6,24 +6,19 @@
 #ifndef __NUMBERLIST_H
 #define __NUMBERLIST_H
 
+struct ListNode
+{
+    double m_value;
+    ListNode *nextPtr;
+};
+
 class NumberList
 {
 private:
-    // Node for singly linked list
-    struct ListNode
-    {
-        double m_value;          // example value for node
-        struct ListNode *nextPtr // pointer to the next node.
-    }
-
-    ListNode *head; // List of the head pointer
+    ListNode *head;
 
 public:
-    NumberList()
-    {
-        this.head = nullptr;
-    }
-
+    NumberList() { this.head = nullptr; }
     ~NumberList();
 
     void appendNode(double value);
