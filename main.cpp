@@ -11,5 +11,10 @@ int main()
     // Defined a NumberList object.
     NumberList list;
 
+    // build some nodes with example data
+    list.appendNode(3.5);
+    list.appendNode(6.7);
+    list.appendNode(8.9);
+
     return 0;
 }
