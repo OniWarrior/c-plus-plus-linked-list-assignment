@@ -105,3 +105,45 @@ void NumberList::insertNode(double value)
         }
     }
 }
+
+void NumberList::deleteNode(double value)
+{
+    ListNode *nodePtr;      // traverse the list.
+    ListNode *previousNode; // point to the previous node.
+
+    // if the list is empty, do nothing.
+    if (!head)
+    {
+        return;
+    }
+
+    // determine if the first node is the one.
+    if (head->m_value == value)
+    {
+        nodePtr = head->nextPtr;
+        delete head;
+        head = nodePtr;
+    }
+    else
+    {
+
+        // initialize nodePtr to head of list
+        nodePtr = head;
+
+        // skip all nodes whose value member is not equal to value
+        while (nodePtr != nullptr && nodePtr->m_value != value)
+        {
+            previousNode = nodePtr;
+            nodePtr = nodePtr->nextPtr;
+        }
+
+        // if nodePtr is not at the end of the list,
+        // link the previous node to the node after
+        // nodePtr, then delete nodePtr.
+        if (nodePtr)
+        {
+            previousNode->nextPtr = nodePtr->nextPtr;
+            delete nodePtr;
+        }
+    }
+}
