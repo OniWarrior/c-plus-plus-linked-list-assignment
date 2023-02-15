@@ -37,3 +37,23 @@ void NumberList::appendNode(double value)
         nodePtr->nextPtr = newNode;
     }
 }
+
+void NumberList::displayList() const
+{
+
+    ListNode *nodePtr;
+    ; // move through the list
+
+    // position nodePtr at the head of the list
+    nodePtr = head;
+
+    // while nodePtr points to a node, traverse the list.
+    while (nodePtr)
+    {
+        // display the value in this node.
+        std::cout << nodePtr->m_value << std::endl;
+
+        // move to the next node.
+        nodePtr = nodePtr->nextPtr;
+    }
+}
