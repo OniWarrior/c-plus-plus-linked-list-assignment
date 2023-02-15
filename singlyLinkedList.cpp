@@ -147,3 +147,27 @@ void NumberList::deleteNode(double value)
         }
     }
 }
+
+NumberList::~NumberList()
+{
+
+    ListNode *nodePtr;  // traverse the list
+    ListNode *nextNode; // point to the next node
+
+    // position nodePtr at the head of the list.
+    nodePtr = head;
+
+    // while nodePtr is not at the end of the list...
+    while (nodePtr != nullptr)
+    {
+
+        // save a pointer to the next node.
+        nextNode = nodePtr->nextPtr;
+
+        // delete the current node.
+        delete nodePtr;
+
+        // position nodePtr at the next node.
+        nodePtr = nextNode;
+    }
+}
