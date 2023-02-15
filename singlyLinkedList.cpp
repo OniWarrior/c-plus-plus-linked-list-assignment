@@ -57,3 +57,51 @@ void NumberList::displayList() const
         nodePtr = nodePtr->nextPtr;
     }
 }
+
+void NumberList::insertNode(double value)
+{
+
+    ListNode *newNode;                // a new node
+    ListNode *nodePtr;                // to traverse the list
+    ListNode *previousNode = nullptr; // pointer to the previous node.
+
+    // allocate a new node and store value there.
+    newNode = new ListNode;
+    newNode->m_value = value;
+
+    // if there are noe nodes in the list make newNode the first node
+    if (!head)
+    {
+        head = newNode;
+        newNode->nextPtr = nullptr;
+    }
+    else
+    { // Otherwise, insert newNode
+
+        // position nodePtr at the head of list.
+        nodePtr = head;
+
+        // initialize previousNode to nullptr
+        previousNode = nullptr;
+
+        // skip all nodes whose value is less than value
+        while (nodePtr != nullptr && nodePtr->m_value < value)
+        {
+            previousNode = nodePtr;
+            nodePtr = nodePtr->nextPtr;
+        }
+
+        // if the new node is to be the 1st in the list,
+        // insert it before all other nodes.
+        if (previousNode == nullptr)
+        {
+            head = newNode;
+            newNode->nextPtr = nodePtr;
+        }
+        else
+        { // otherwise insert after the previous node.
+            previousNode->nextPtr = newNode;
+            newNode->nextPtr = nodePtr;
+        }
+    }
+}
