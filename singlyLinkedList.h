@@ -24,6 +24,8 @@ public:
     void appendNode(double value);
     void insertNode(double value);
     void deleteNode(double value);
+    void swapAdjacentNodes(ListNode *node, ListNode *adjNode);
+    ListNode *getHead();
     void displayList() const;
 };
 
