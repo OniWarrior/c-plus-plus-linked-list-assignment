@@ -42,13 +42,13 @@ void NumberList::displayList() const
 {
 
     ListNode *nodePtr;
-    ; // move through the list
+    // move through the list
 
     // position nodePtr at the head of the list
     nodePtr = head;
 
     // while nodePtr points to a node, traverse the list.
-    while (nodePtr)
+    while (nodePtr != nullptr)
     {
         // display the value in this node.
         std::cout << nodePtr->m_value << std::endl;
@@ -170,4 +170,47 @@ NumberList::~NumberList()
         // position nodePtr at the next node.
         nodePtr = nextNode;
     }
+}
+
+// swap the adjacent nodes
+// Traverse the list. Once we find targets switch the next ptrs
+// we assume that parameter ListNode *node is the first of our targets
+// and ListNode *adjNode is our second target.
+void NumberList::swapAdjacentNodes(ListNode *node, ListNode *adjNode)
+{
+    ListNode *nodePtr;  // traverse the list.
+    ListNode *nextNode; // point to the next node
+
+    // position nodePtr at the head of the list.
+    nodePtr = head;
+
+    // while nodePtr is not at the end of the list...
+    while (nodePtr != nullptr)
+    {
+
+        // save a pointer to the next node.
+        nextNode = nodePtr->nextPtr;
+
+        // if the current node points to parameter "node" then switch its pointer
+        // to point to adjNode instead.
+
+        if (nodePtr->nextPtr == node)
+        {
+
+            nodePtr->nextPtr = adjNode;       // current node should point to adjacent node instead of node.
+            node->nextPtr = adjNode->nextPtr; // swap the pointer of parameter node to point to what the adjacent node points.
+            adjNode->nextPtr = node;          // adjacent will now point to node.
+            return;                           // since the job is done, return instead of traversing the remainder of list.
+        }
+        else
+        { // otherwise, keep traversing the list.
+
+            nodePtr = nextNode; // position nodePtr at the nextNode.
+        }
+    }
+}
+
+ListNode *NumberList::getHead()
+{
+    return head;
 }
