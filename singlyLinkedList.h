@@ -18,13 +18,15 @@ private:
     ListNode *head;
 
 public:
-    NumberList() { this.head = nullptr; }
+    NumberList() { head = nullptr; }
     ~NumberList();
 
     void appendNode(double value);
     void insertNode(double value);
     void deleteNode(double value);
+    void swapAdjacentNodes(ListNode *node, ListNode *adjNode);
+    ListNode *getHead();
     void displayList() const;
-}
+};
 
 #endif
