@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include "singlyLinkedList.h"
+#include <vector>
+#include <algorithm>
 
 void NumberList::appendNode(double value)
 {
@@ -56,6 +58,34 @@ void NumberList::displayList() const
 
         // move to the next node.
         nodePtr = nodePtr->nextPtr;
+    }
+}
+
+void NumberList::displayReversedList() const
+{
+    ListNode *nodePtr; // move through the list.
+
+    std::vector<double> reversedList; // values from list will be stored here.
+
+    nodePtr = head; // position nodePtr at the head of the list.
+
+    // while nodePtr points to a node, traverse the list.
+    while (nodePtr != nullptr)
+    {
+
+        // push to the vector
+        reversedList.push_back(nodePtr->m_value);
+
+        nodePtr = nodePtr->nextPtr;
+    }
+
+    // reverse the vector
+    std::reverse(reversedList.begin(), reversedList.end());
+
+    // print reversed vector
+    for (auto el : reversedList)
+    {
+        std::cout << el << std::endl;
     }
 }
 

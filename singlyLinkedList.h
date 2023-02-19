@@ -16,13 +16,11 @@ class NumberList
 {
 private:
     ListNode *head;
-    ListNode *tail;
 
 public:
     NumberList()
     {
         head = nullptr;
-        tail = nullptr;
     }
     ~NumberList();
 
@@ -30,9 +28,10 @@ public:
     void insertNode(double value);
     void deleteNode(double value);
     void swapAdjacentNodes(ListNode *node, ListNode *adjNode);
-    ListNode *getTail();
+
     ListNode *getHead();
     void displayList() const;
+    void displayReversedList() const;
 };
 
 #endif
