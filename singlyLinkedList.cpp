@@ -35,6 +35,7 @@ void NumberList::appendNode(double value)
 
         // Insert newNode as the last node.
         nodePtr->nextPtr = newNode;
+        tail = newNode;
     }
 }
 
@@ -213,4 +214,9 @@ void NumberList::swapAdjacentNodes(ListNode *node, ListNode *adjNode)
 ListNode *NumberList::getHead()
 {
     return head;
+}
+
+ListNode *NumberList::getTail()
+{
+    return tail;
 }
