@@ -62,5 +62,10 @@ int main()
     list.displayList();
     std::cout << std::endl;
 
+    // Display reversed list.
+    std::cout << "This is a reversed list: \n";
+    list.displayReversedList();
+    std::cout << std::endl;
+
     return 0;
 }
